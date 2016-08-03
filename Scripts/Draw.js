@@ -12,5 +12,12 @@ function Draw()
     }
 
     ctx.drawImage(academyImage,0.73*window.innerHeight,0.565*window.innerHeight,0.22*window.innerHeight,0.41*window.innerHeight);
+    
+    for (var i = 0; i < bugs.length; i += 1) {
+      var bug = bugs[i];
+
+      ctx.drawImage(bug1Image, bug.X, bug.Y , 0.045*window.innerHeight,0.045*window.innerHeight);
+    }
+    
 
 }
