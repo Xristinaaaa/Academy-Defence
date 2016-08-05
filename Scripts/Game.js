@@ -1,15 +1,13 @@
 //Load Images
 var allImages = [];
-var trevataImage = new Image;
-trevataImage.src = "Images/Grass.png";
+var trevataImage = document.getElementById("grass");
+var dirtImage = document.getElementById("dirt");
+var academyImage = document.getElementById("academy");
+var bug1Image = document.getElementById("bug1");
+
 allImages.push(trevataImage);
-var dirtImage = new Image;
-dirtImage.src = "Images/Dirt.png";
 allImages.push(dirtImage);
-var academyImage = new Image;
-academyImage.src = "Images/Academy.png";
-var bug1Image = new Image;
-bug1Image.src = "Images/Bug1.png";
+
 
 var canvasa;
 var ctx;
