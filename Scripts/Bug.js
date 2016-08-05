@@ -6,11 +6,18 @@ function Bug(position, health, speed, clock) {
     this.Clock = clock;
     this.Direction = new Vector2(1, 0);
 
-    function changeDirection(newDirection) {
+    this.changeDirection = function(newDirection) {
         this.Direction.X = newDirection.X;
         this.Direction.Y = newDirection.Y;
     }
 
+    this.Update = function() {
+        bugNextDirection(this);
+
+        this.X += this.Direction.X * (Resolution.X / 10);
+        this.Y += this.Direction.Y * (Resolution.Y / 10);
+    }
+    
     return this;
 }
 

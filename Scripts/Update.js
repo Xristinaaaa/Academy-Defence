@@ -5,10 +5,7 @@ function Update() {
         var currentBug = bugs[i];
 
         //TODO Change Direction When inside grid direction is new
-        bugNextDirection(currentBug);
-
-        currentBug.X += currentBug.Direction.X * (Resolution.X / 10);
-        currentBug.Y += currentBug.Direction.Y * (Resolution.Y / 10);
+        currentBug.Update();
 
         console.log(currentBug.Direction);
     }
