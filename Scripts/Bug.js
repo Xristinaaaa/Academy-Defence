@@ -1,6 +1,8 @@
-function Bug(position, health, speed, clock) {
+function Bug(position,size, health, speed, clock) {
     this.X = position.X;
     this.Y = position.Y;
+    this.Width = size.X;
+    this.Height = size.Y;
     this.Health = health;
     this.Speed = speed;
     this.Clock = clock;
@@ -12,12 +14,22 @@ function Bug(position, health, speed, clock) {
     }
 
     this.Update = function() {
-        bugNextDirection(this);
+          if (this.Clock >= 0)
+          {
+            if (this.Clock % 50 === 0 || this.Clock % 50 === -0)
+            {
+              bugNextDirection(this);
+            }
+            this.X += this.Direction.X * (Resolution.X * blockSize * 0.02);
+            this.Y += this.Direction.Y * (Resolution.Y * blockSize * 0.02);
+          }
 
-        this.X += this.Direction.X * (Resolution.X / 10);
-        this.Y += this.Direction.Y * (Resolution.Y / 10);
+          this.Clock+=1;
+
+
     }
-    
+
+
     return this;
 }
 
@@ -38,7 +50,8 @@ function bugNextDirection(bug) {
       tempBugY -= Resolution.Y / 10;
       tempY += 1;
     }
-    
+
     bug.Direction = grida[tempY][tempX].Direction;
+
   }
 }

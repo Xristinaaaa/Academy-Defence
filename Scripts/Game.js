@@ -21,11 +21,11 @@ var UpdateInterval;
 var UpdateCounter = 0;
 
 function StartUp() {
-  Resolution = new Vector2(window.innerHeight * 0.95, window.innerHeight * 0.95);
+  Resolution = new Vector2(window.innerHeight * GameWindowSize, window.innerHeight * GameWindowSize);
   //Setting canvas dimensions and ctx drawing object:
   canvasa = document.getElementById('canvasa');
-  canvasa.width = window.innerHeight * 1.55;
-  canvasa.height = window.innerHeight * 0.95;
+  canvasa.width = window.innerHeight * EntireCanvasWidth;
+  canvasa.height = window.innerHeight * GameWindowSize;
 
   ctx = canvasa.getContext('2d');
   ctx.fillStyle = "#88FF55";
@@ -73,11 +73,11 @@ function StartUp() {
 
   //Bugs init
   for (var i = 0; i < 5; i += 1) {
-    bugs.push(new Bug(new Vector2(Resolution.X * 0.0425, Resolution.Y * 0.85), 100, 10, -20 * i));
+    bugs.push(new Bug(new Vector2(Resolution.X * -(blockSize / 2), Resolution.Y * (8.5*blockSize)),new Vector2(blockSize*Resolution.X*0.5,blockSize*Resolution.X*0.5), 100, 10, -50 * i));
   }
 
-  DrawInterval = setInterval(Draw, 200);
-  UpdateInterval = setInterval(Update, 1000);
+  DrawInterval = setInterval(Draw, 35);
+  UpdateInterval = setInterval(Update, 50);
 
 
 }
