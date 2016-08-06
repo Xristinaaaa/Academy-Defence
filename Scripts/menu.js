@@ -9,6 +9,6 @@ $(document).ready(function() {
         $(this).css({ 'background-color': 'grey', 'animation': 'namedcolors 0.3s 0 alternate' });
     });
     $("#start-button").click(function() {
-        window.location.assign("../Index.html");
+        window.location.assign("Index.html");
     });
 });
