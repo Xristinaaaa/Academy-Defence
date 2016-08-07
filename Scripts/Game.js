@@ -23,6 +23,7 @@ var UpdateCounter = 0;
 
 function StartUp() {
     Resolution = new Vector2(window.innerHeight * GameWindowSize, window.innerHeight * GameWindowSize);
+    
     //Setting canvas dimensions and ctx drawing object:
     canvasa = document.getElementById('canvasa');
     canvasa.width = window.innerHeight * EntireCanvasWidth;
@@ -35,7 +36,6 @@ function StartUp() {
 
     //Bugs init
     var blockX = Resolution.X * -(blockSize / 2);
-    console.log(Resolution);
     var blockY = Resolution.Y * (8.5 * blockSize);
 
     for (var i = 0; i < 5; i += 1) {
@@ -55,7 +55,7 @@ function StartUp() {
         var currentBlock = getBlockFromCoordinates(x, y);
 
         if (currentBlock.Type === RoadType) {
-            throw new Error("Cannot build tower on road!");
+            throw new Error("Cannot select road blocks!");
         } else {
             // its not road -> highlight
             // if (currentBlock.Tower) {
@@ -70,6 +70,10 @@ function StartUp() {
                     } else {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
+
+                        //when hightlighted can build tower from the menu
+                        //call the method
+                        
                     }
                 }
             }
