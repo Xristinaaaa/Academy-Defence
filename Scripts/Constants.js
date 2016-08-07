@@ -6,7 +6,7 @@ var EntireCanvasWidth = 1.55;
 var blockSize = 0.1;
 //Update refresh rate in milliseconds//
 var UpdateRefresh = 20;
-var DrawRefresh = 35;
+var DrawRefresh = 40;
 
 //Type Enumeration
 var GrassType = 0;

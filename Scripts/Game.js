@@ -23,7 +23,7 @@ var UpdateCounter = 0;
 
 function StartUp() {
     Resolution = new Vector2(window.innerHeight * GameWindowSize, window.innerHeight * GameWindowSize);
-    
+
     //Setting canvas dimensions and ctx drawing object:
     canvasa = document.getElementById('canvasa');
     canvasa.width = window.innerHeight * EntireCanvasWidth;
@@ -40,7 +40,7 @@ function StartUp() {
 
     for (var i = 0; i < 5; i += 1) {
         bugs.push(new Bug(new Vector2(blockX, blockY),
-            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15, i));
+            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 + parseInt(Math.random()*20), i));
     }
 
     DrawInterval = setInterval(Draw, DrawRefresh);
@@ -66,14 +66,14 @@ function StartUp() {
             for (var y = 0; y < 10; y += 1) {
                 for (var x = 0; x < 10; x += 1) {
                     if ((currentBlock.X !== x) || (currentBlock.Y !== y)) {
-                        grida[y][x].Highlighted = false; 
+                        grida[y][x].Highlighted = false;
                     } else {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
 
                         //when hightlighted can build tower from the menu
                         //call the method
-                        
+
                     }
                 }
             }
