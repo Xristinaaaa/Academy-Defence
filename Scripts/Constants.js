@@ -4,3 +4,6 @@ var GameWindowSize = 0.95;
 var EntireCanvasWidth = 1.55;
 //The size of an individual block//
 var blockSize = 0.1;
+//Update refresh rate in milliseconds//
+var UpdateRefresh = 20;
+var DrawRefresh = 35;

@@ -1,11 +1,11 @@
-function Bug(position,size, health, speed, clock) {
+function Bug(position,size, health, speed, iterator) {
     this.X = position.X;
     this.Y = position.Y;
     this.Width = size.X;
     this.Height = size.Y;
     this.Health = health;
     this.Speed = speed;
-    this.Clock = clock;
+    this.Clock = iterator * -speed;
     this.Direction = new Vector2(1, 0);
 
     this.changeDirection = function(newDirection) {
@@ -16,12 +16,12 @@ function Bug(position,size, health, speed, clock) {
     this.Update = function() {
           if (this.Clock >= 0)
           {
-            if (this.Clock % 50 === 0 || this.Clock % 50 === -0)
+            if (this.Clock % this.Speed === 0 || this.Clock % this.Speed === -0)
             {
               bugNextDirection(this);
             }
-            this.X += this.Direction.X * (Resolution.X * blockSize * 0.02);
-            this.Y += this.Direction.Y * (Resolution.Y * blockSize * 0.02);
+            this.X += this.Direction.X * (Resolution.X * blockSize * (1/this.Speed));
+            this.Y += this.Direction.Y * (Resolution.Y * blockSize * (1/this.Speed));
           }
 
           this.Clock+=1;

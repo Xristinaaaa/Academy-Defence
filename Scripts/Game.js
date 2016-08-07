@@ -71,13 +71,14 @@ function StartUp() {
   grida[8][6].Type = 1; grida[8][6].Direction = new Vector2(1, 0);
   grida[8][7].Type = 1; grida[8][7].Direction = new Vector2(1, 0);
 
+
   //Bugs init
   for (var i = 0; i < 5; i += 1) {
-    bugs.push(new Bug(new Vector2(Resolution.X * -(blockSize / 2), Resolution.Y * (8.5*blockSize)),new Vector2(blockSize*Resolution.X*0.5,blockSize*Resolution.X*0.5), 100, 10, -50 * i));
+    bugs.push(new Bug(new Vector2(Resolution.X * -(blockSize / 2), Resolution.Y * (8.5*blockSize)),new Vector2(blockSize*Resolution.X*0.5,blockSize*Resolution.X*0.5), 100, 15,i));
   }
 
-  DrawInterval = setInterval(Draw, 35);
-  UpdateInterval = setInterval(Update, 50);
+  DrawInterval = setInterval(Draw, DrawRefresh);
+  UpdateInterval = setInterval(Update, DrawRefresh);
 
 
 }
