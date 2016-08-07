@@ -7,7 +7,11 @@ function Draw()
     {
       for (var x = 0;x < 10;x+=1)
       {
-         ctx.drawImage(allImages[grida[y][x].Type],x*(GameWindowSize*blockSize*window.innerHeight),y*(GameWindowSize*blockSize*window.innerHeight),(blockSize*window.innerHeight),(blockSize*window.innerHeight));
+         ctx.drawImage(allImages[grida[y][x].Type],
+         x*(GameWindowSize*blockSize*window.innerHeight),
+         y*(GameWindowSize*blockSize*window.innerHeight),
+         (blockSize*window.innerHeight),
+         (blockSize*window.innerHeight));
       }
     }
 

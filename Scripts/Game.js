@@ -7,6 +7,7 @@ var bug1Image = document.getElementById("bug1");
 
 allImages.push(trevataImage);
 allImages.push(dirtImage);
+allImages.push(bug1Image);
 
 
 var canvasa;
@@ -73,14 +74,60 @@ function StartUp() {
 
 
   //Bugs init
+  var blockX = Resolution.X * -(blockSize / 2);
+  console.log(Resolution);
+  var blockY = Resolution.Y * (8.5 * blockSize);
+
   for (var i = 0; i < 5; i += 1) {
-    bugs.push(new Bug(new Vector2(Resolution.X * -(blockSize / 2), Resolution.Y * (8.5*blockSize)),new Vector2(blockSize*Resolution.X*0.5,blockSize*Resolution.X*0.5), 100, 15,i));
+    bugs.push(new Bug(new Vector2(blockX, blockY),
+      new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15, i));
   }
 
   DrawInterval = setInterval(Draw, DrawRefresh);
   UpdateInterval = setInterval(Update, DrawRefresh);
 
+  //On click get block coordinates.
+  //If the block isnt of type road and isnt of type tower allow to build tower.
+  document.body.addEventListener('click', function (event) {
+    var x = event.clientX;
+    var y = event.clientY;
 
+    var currentBlock = getBlockFromCoordinates(x, y);
+
+    if (currentBlock.Type == RoadType) {
+      throw new Error("Cannot build tower on road!");
+    } else {
+      if (currentBlock.Tower) {
+        throw new Error("You cannot build a tower on top of another tower!");
+      } else {
+        currentBlock.Type = TowerType;
+      }
+    }
+  });
+
+  function getBlockFromCoordinates(x, y) {
+    if ((x > Resolution.X || x < 0) &&
+      (y > Resolution.Y || y < 0)) {
+      throw new Error("Clicked outside of canvas!");
+    }
+
+    var tempX = 0;
+    var tempY = 0;
+    var tempBlockX = x;
+    var tempBlockY = y;
+
+    while (tempBlockX >= Resolution.X / 10) {
+      tempBlockX -= Resolution.X / 10;
+      tempX += 1;
+    }
+
+    while (tempBlockY >= Resolution.Y / 10) {
+      tempBlockY -= Resolution.Y / 10;
+      tempY += 1;
+    }
+
+    return grida[tempY][tempX];
+  }
 }
 
 window.onload = StartUp;
