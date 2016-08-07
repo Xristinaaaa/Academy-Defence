@@ -79,6 +79,9 @@ function StartUp() {
             }
         }
     });
+
+    //testing distance between points
+    console.log(distance2D(new Vector2(1, 0), new Vector2(-1, 1)));
 }
 
 window.onload = StartUp;
