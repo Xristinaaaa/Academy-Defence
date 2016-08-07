@@ -8,5 +8,4 @@ function Update() {
         currentBug.Update();
 
     }
-
 }

@@ -7,7 +7,8 @@ var blockSize = 0.1;
 //Update refresh rate in milliseconds//
 var UpdateRefresh = 20;
 var DrawRefresh = 35;
+
 //Type Enumeration
-var RoadType = 1;
 var GrassType = 0;
+var RoadType = 1;
 var TowerType = 2;

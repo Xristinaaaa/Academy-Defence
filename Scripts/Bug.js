@@ -1,4 +1,4 @@
-function Bug(position,size, health, speed, iterator) {
+function Bug(position, size, health, speed, iterator) {
     this.X = position.X;
     this.Y = position.Y;
     this.Width = size.X;
@@ -8,23 +8,21 @@ function Bug(position,size, health, speed, iterator) {
     this.Clock = iterator * -speed;
     this.Direction = new Vector2(1, 0);
 
-    this.changeDirection = function(newDirection) {
+    this.changeDirection = function (newDirection) {
         this.Direction.X = newDirection.X;
         this.Direction.Y = newDirection.Y;
     }
 
-    this.Update = function() {
-          if (this.Clock >= 0)
-          {
-            if (this.Clock % this.Speed === 0 || this.Clock % this.Speed === -0)
-            {
-              bugNextDirection(this);
+    this.Update = function () {
+        if (this.Clock >= 0) {
+            if (this.Clock % this.Speed === 0 || this.Clock % this.Speed === -0) {
+                bugNextDirection(this);
             }
-            this.X += this.Direction.X * (Resolution.X * blockSize * (1/this.Speed));
-            this.Y += this.Direction.Y * (Resolution.Y * blockSize * (1/this.Speed));
-          }
+            this.X += this.Direction.X * (Resolution.X * blockSize * (1 / this.Speed));
+            this.Y += this.Direction.Y * (Resolution.Y * blockSize * (1 / this.Speed));
+        }
 
-          this.Clock+=1;
+        this.Clock += 1;
 
 
     }
@@ -34,24 +32,24 @@ function Bug(position,size, health, speed, iterator) {
 }
 
 function bugNextDirection(bug) {
-  if ((bug.X >= 0 && bug.X < Resolution.X) && (bug.Y >= 0 && bug.Y < Resolution.Y)) {
-    var newDirection = new Vector2(0, 0);
-    var tempX = 0;
-    var tempY = 0;
-    var tempBugX = bug.X;
-    var tempBugY = bug.Y;
+    if ((bug.X >= 0 && bug.X < Resolution.X) && (bug.Y >= 0 && bug.Y < Resolution.Y)) {
+        var newDirection = new Vector2(0, 0);
+        var tempX = 0;
+        var tempY = 0;
+        var tempBugX = bug.X;
+        var tempBugY = bug.Y;
 
-    while(tempBugX >= Resolution.X / 10) {
-      tempBugX -= Resolution.X / 10;
-      tempX += 1;
+        while (tempBugX >= Resolution.X / 10) {
+            tempBugX -= Resolution.X / 10;
+            tempX += 1;
+        }
+
+        while (tempBugY >= Resolution.Y / 10) {
+            tempBugY -= Resolution.Y / 10;
+            tempY += 1;
+        }
+
+        bug.Direction = grida[tempY][tempX].Direction;
+
     }
-
-    while(tempBugY >= Resolution.Y / 10) {
-      tempBugY -= Resolution.Y / 10;
-      tempY += 1;
-    }
-
-    bug.Direction = grida[tempY][tempX].Direction;
-
-  }
 }
