@@ -1,4 +1,15 @@
-html, body {
+html, body, img, ul, li {
     margin: 0;
     padding: 0;
+}
+
+#tower-menu > ul {
+    border: 1px black solid;
+    width: 310px;
+    height: 100px;
+}
+
+#tower-menu > ul > li {
+    display: inline;
+    list-style: none;
 }

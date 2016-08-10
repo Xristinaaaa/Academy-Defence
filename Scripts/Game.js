@@ -52,6 +52,10 @@ function StartUp() {
         var x = event.clientX;
         var y = event.clientY;
 
+        var template = '';
+
+
+
         var currentBlock = getBlockFromCoordinates(x, y);
 
         if (currentBlock.Type === RoadType) {
