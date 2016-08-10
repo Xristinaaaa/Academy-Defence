@@ -15,6 +15,8 @@ var ctx;
 var grida = [];
 var bugs = [];
 
+var towerMenuSelector = 'tower-menu';
+
 var DrawInterval;
 var UpdateInterval;
 
@@ -71,7 +73,9 @@ function StartUp() {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
 
-                        showBuildMenu(currentBlock, event.clientX, event.clientY);
+                        displayBuildMenu(towerMenuSelector, currentBlock, event.clientX, event.clientY);
+
+                        getSelectedTower(towerMenuSelector);
 
                         //when hightlighted can build tower from the menu
                         //call the method
@@ -82,13 +86,18 @@ function StartUp() {
         }
     });
 
-    function showBuildMenu(block, clickPointerX, clickPointerY) {
-        var towerMenu = document.getElementById('tower-menu');
+    //Display buildMenu at given X, Y coords.
+    function displayBuildMenu(selector, block, clickPointerX, clickPointerY) {
+        var towerMenu = document.getElementById(selector);
         towerMenu.style.position = 'absolute';
         towerMenu.style.left = clickPointerX + 'px';
         towerMenu.style.top = clickPointerY + 'px';
-        towerMenu.style.zIndex ='10';
+        towerMenu.style.zIndex = '10';
         towerMenu.style.display = 'block';
+    }
+
+    //Return selected tower type.
+    function getSelectedTower(selector) {
     }
 
     //testing distance between points
