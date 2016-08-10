@@ -20,7 +20,6 @@ allImages.push(dirtImage);
 allImages.push(bug1Image);
 
 hubImages.push(document.getElementById("goldStack"));
-hubImages.push(document.getElementById("heartIcon"));
 
 var canvasa;
 var ctx;
