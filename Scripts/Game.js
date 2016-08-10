@@ -22,6 +22,15 @@ allImages.push(bug1Image);
 
 hubImages.push(document.getElementById("goldStack"));
 hubImages.push(document.getElementById("heart"));
+hubImages.push(towerBaseImage1);
+hubImages.push(towerBaseImage2);
+hubImages.push(towerBaseImage3);
+
+var initGold;
+var initLife;
+var initTower1;
+var initTower2;
+var initTower3;
 
 var canvasa;
 var ctx;
@@ -61,15 +70,21 @@ function StartUp() {
 
     setRoadForLevel();
     
+    //Setting tower
     grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
 
     //Bugs init
+    var numOfBugs= parseInt(Math.random()*100) + 1;
     var blockX = Resolution.X * -(blockSize / 2);
     var blockY = Resolution.Y * (8.5 * blockSize);
 
-    for (var i = 0; i < 5; i += 1) {
-        bugs.push(new Bug(new Vector2(blockX, blockY),
-            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i));
+    for (var i = 0; i < numOfBugs; i += 1) {   
+         (function(i) {
+            setTimeout(function() { 
+            bugs.push(new Bug(new Vector2(blockX, blockY),
+                new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i));
+            }, 3000);
+        })(i);
     }
 
     DrawInterval = setInterval(Draw, DrawRefresh);
@@ -108,28 +123,44 @@ function StartUp() {
             }
         }
     });
+
     //Loading menu items
-
-    var goldImage = hubImages[0];
-    var heartImage = hubImages[1];
-
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 5),
+    //push gold and heart
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 4),
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 0));
-
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 3),
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 2),
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 1));
 
+    //push towers
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 5),
+        (blockSize * Resolution.X * 5), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 2));
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 3),
+        (blockSize * Resolution.X * 5), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 3));
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 1),
+        (blockSize * Resolution.X * 5), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 4));
 
     //Loading menu texts
-    var initGold = 150;
-    var initLife = 10
+    initGold = 150;
+    initLife = 10;
+    initTower1= "Tower 1\n Range: short\n Damage: med\n Cost: 50";
+    initTower2= "Tower 2\n Range: med\n Damage: med\n Cost: 60";
+    initTower3= "Tower 3\n Range: long\n Damage: large\n Cost: 75";
 
-
-    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.7),
+    //push gold and heart text
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 3.7),
         (blockSize * Resolution.X * 2), 22, "#CC2255", initGold));
-
-    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.6),
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 1.6),
         (blockSize * Resolution.X * 2), 22, "#CC2255", initLife + "/10"));
+
+    //push towers text
+    /* 
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 0.3),
+        (blockSize * Resolution.X * 6), 22, "#666600", initTower1));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.3),
+        (blockSize * Resolution.X * 7), 22, "#006666", initTower2));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.3),
+        (blockSize * Resolution.X * 8), 22, "#FF0000", initTower3));
+    */
 
 }
 
