@@ -12,11 +12,11 @@ function Tower(setType,setPos,setAttackSpeed){
        this.Clock = 0;
        for (var i = 0;i < bugs.length;i+=1)
        {
-         //console.log(this.Position);
+         console.log(this.Position);
          if (distance2D(this.Position,new Vector2(bugs[i].X,bugs[i].Y)) < this.Range)
          {
            bullets.push(new Bullet(bugs[i],this.Position,3,10,0));
-           return;
+           break;
          }
        }
      }

@@ -60,6 +60,6 @@ function Draw()
     //Draw projectiles//
     for (var i = 0;i < bullets.length;i+=1)
     {
-      ctx.drawImage(bulletsImage,bullets[i].X,bullets[i].Y,10,10);
+      ctx.drawImage(bulletsImage,bullets[i].Position.X,bullets[i].Position.Y,10,10);
     }
 }
