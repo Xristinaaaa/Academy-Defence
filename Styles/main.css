@@ -26,3 +26,15 @@ html, body, img, ul, li {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+/*------------------------------- Canvas -------------------------------*/
+#canvas-container {
+    position: relative;
+}
+
+.canvas {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    /*width: 500px;*/
+}

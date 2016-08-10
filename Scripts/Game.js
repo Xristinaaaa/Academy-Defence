@@ -6,6 +6,14 @@ var academyImage = document.getElementById("academy");
 var bug1Image = document.getElementById("bug1");
 var hightlight = document.getElementById("hightlight");
 
+var towerBaseImage1 = document.getElementById("towerBase1");
+var towerBaseImage2 = document.getElementById("towerBase2");
+var towerBaseImage3 = document.getElementById("towerBase3");
+
+var towerMenuImage1 = document.getElementById("towerMenu1");
+var towerMenuImage2 = document.getElementById("towerMenu2");
+var towerMenuImage3 = document.getElementById("towerMenu3");
+
 allImages.push(trevataImage);
 allImages.push(dirtImage);
 allImages.push(bug1Image);
@@ -15,7 +23,16 @@ var ctx;
 var grida = [];
 var bugs = [];
 
+var towerBaseImages = [towerBaseImage1, towerBaseImage2, towerBaseImage3];
+var towerMenuImages = [towerMenuImage1, towerMenuImage2, towerMenuImage3];
+
 var towerMenuSelector = 'tower-menu';
+
+var towerCanvas = document.getElementById('tower-canvas');
+towerCanvas.width = window.innerHeight * EntireCanvasWidth;
+towerCanvas.height = window.innerHeight * GameWindowSize;
+
+var towerCanvasCtx = towerCanvas.getContext('2d');
 
 var DrawInterval;
 var UpdateInterval;
@@ -73,33 +90,17 @@ function StartUp() {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
 
-                        displayBuildMenu(towerMenuSelector, currentBlock, event.clientX, event.clientY);
+                        displayBuildMenu(towerCanvas, towerMenuImages, currentBlock, event.clientX, event.clientY);
 
                         getSelectedTower(towerMenuSelector);
 
                         //when hightlighted can build tower from the menu
                         //call the method
-
                     }
                 }
             }
         }
     });
-
-    //Display buildMenu at given X, Y coords.
-    function displayBuildMenu(selector, block, clickPointerX, clickPointerY) {
-        var towerMenu = document.getElementById(selector);
-        towerMenu.style.position = 'absolute';
-        towerMenu.style.left = clickPointerX + 'px';
-        towerMenu.style.top = clickPointerY + 'px';
-        towerMenu.style.zIndex = '10';
-        towerMenu.style.display = 'block';
-    }
-
-    //Return selected tower type.
-    function getSelectedTower(selector) {
-    }
-
     //testing distance between points
     console.log(distance2D(new Vector2(1, 0), new Vector2(-1, 1)));
 }
