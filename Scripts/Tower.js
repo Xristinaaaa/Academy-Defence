@@ -12,10 +12,9 @@ function Tower(setType,setPos,setAttackSpeed){
        this.Clock = 0;
        for (var i = 0;i < bugs.length;i+=1)
        {
-         console.log(this.Position);
          if (distance2D(this.Position,new Vector2(bugs[i].X,bugs[i].Y)) < this.Range)
          {
-           bullets.push(new Bullet(bugs[i], new Vector2(this.Position.X, this.Position.Y),2,10,0));
+           bullets.push(new Bullet(bugs[i], new Vector2(this.Position.X, this.Position.Y),2,42,0));
            break;
          }
        }
@@ -45,6 +44,7 @@ function Bullet(bug,setPos,setSpeed,setDmg,setType){
       if ( distance2D(prevPosition, new Vector2(this.TrackedBug.X,this.TrackedBug.Y)) < 
             distance2D(this.Position, new Vector2(this.TrackedBug.X,this.TrackedBug.Y))) {
               bullets.splice(bullets.indexOf(this), 1);
+              this.TrackedBug.takeDamage(this.Damage);
       }
      }
      this.Clock += 1;

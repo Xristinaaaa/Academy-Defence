@@ -27,6 +27,13 @@ function Bug(position, size, health, speed, iterator) {
 
     }
 
+    this.takeDamage = function (damage) {
+        this.Health -= damage;
+        if (this.Health <= 0) {
+            bugs.splice(bugs.indexOf(this), 1);
+        }
+    }
+
 
     return this;
 }
