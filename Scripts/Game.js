@@ -1,5 +1,6 @@
 //Load Images
 var allImages = [];
+var hubImages=[];
 var trevataImage = document.getElementById("grass");
 var dirtImage = document.getElementById("dirt");
 var academyImage = document.getElementById("academy");
@@ -18,10 +19,14 @@ allImages.push(trevataImage);
 allImages.push(dirtImage);
 allImages.push(bug1Image);
 
+hubImages.push(document.getElementById("goldStack"));
+
 var canvasa;
 var ctx;
 var grida = [];
 var bugs = [];
+var hubItems = [];
+var hubTexts = [];
 
 var towerBaseImages = [towerBaseImage1, towerBaseImage2, towerBaseImage3];
 var towerMenuImages = [towerMenuImage1, towerMenuImage2, towerMenuImage3];
@@ -97,8 +102,14 @@ function StartUp() {
             }
         }
     });
-    //testing distance between points
-    console.log(distance2D(new Vector2(1, 0), new Vector2(-1, 1)));
+    //Loading menu items
+
+    hubItems.push(new HubElement(Resolution.X+(blockSize*Resolution.X*5),
+    (blockSize*Resolution.X*1),(blockSize*Resolution.X*0.5),(blockSize*Resolution.X*0.5), 0));
+
+    //Loading menu texts
+    hubTexts.push(new HubText(Resolution.X+(blockSize*Resolution.X*5.5),
+    (blockSize*Resolution.X*1),18, "#CC2255", "100"));
 }
 
 window.onload = StartUp;
