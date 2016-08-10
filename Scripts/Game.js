@@ -90,10 +90,6 @@ function StartUp() {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
 
-                        displayBuildMenu(towerCanvas, towerMenuImages, currentBlock, event.clientX, event.clientY);
-
-                        getSelectedTower(towerMenuSelector);
-
                         //when hightlighted can build tower from the menu
                         //call the method
                     }
