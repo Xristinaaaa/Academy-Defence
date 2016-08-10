@@ -13,6 +13,14 @@ function Draw()
          y * (blockSize * Resolution.Y),
          (blockSize * Resolution.X),
          (blockSize * Resolution.Y));
+
+         if (grida[y][x].Tower !== undefined)
+         {
+           ctx.drawImage(towerBaseImage1,x * (blockSize * Resolution.X),
+           y * (blockSize * Resolution.Y),
+           (blockSize * Resolution.X),
+           (blockSize * Resolution.Y));
+         }
       }
     }
 
@@ -40,12 +48,18 @@ function Draw()
     for (var y = 0; y < 10; y += 1) {
       for (var x = 0; x < 10; x += 1) {
         if (grida[y][x].Highlighted) {
-          ctx.drawImage(hightlight, 
+          ctx.drawImage(hightlight,
                         x * (blockSize * Resolution.X),
                         y * (blockSize * Resolution.Y),
                         (blockSize * Resolution.X),
                         (blockSize * Resolution.Y));
         }
       }
+    }
+
+    //Draw projectiles//
+    for (var i = 0;i < bullets.length;i+=1)
+    {
+      ctx.drawImage(bulletsImage,bullets[i].X,bullets[i].Y,10,10);
     }
 }

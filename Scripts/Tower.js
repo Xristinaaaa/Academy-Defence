@@ -1,18 +1,49 @@
-//Display buildMenu at given X, Y coords.
-function displayBuildMenu(canvas, imgArr, block, clickPointerX, clickPointerY) {
-    var startPosX = clickPointerX;
-    var startPosY = clickPointerY;
-    var context2D = canvas.getContext('2d');
-    var distanceBetweenRectangles = 100;
+function Tower(setType,setPos,setAttackSpeed){
+  this.Type = setType;
+  this.Position = setPos;
+  this.AttackSpeed = setAttackSpeed;
+  this.Range = Resolution.X*blockSize*3;
+  this.Clock = 0;
 
-    context2D.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (var i = 0; i < imgArr.length; i += 1) {
-        context2D.drawImage(imgArr[i], startPosX + (i * distanceBetweenRectangles), startPosY);
-    }
+  this.ShootAtBug = function(){
+     if (this.Clock % this.AttackSpeed === 0 || this.Clock % this.AttackSpeed === -0)
+     {
+       this.Clock = 0;
+       for (var i = 0;i < bugs.length;i+=1)
+       {
+         //console.log(this.Position);
+         if (distance2D(this.Position,new Vector2(bugs[i].X,bugs[i].Y)) < this.Range)
+         {
+           bullets.push(new Bullet(bugs[i],this.Position,3,10,0));
+           return;
+         }
+       }
+     }
+
+     this.Clock+=1;
+  }
+
+  return this;
 }
 
-//Return selected tower type.
-function getSelectedTower(selector) {
+function Bullet(bug,setPos,setSpeed,setDmg,setType){
+  this.Position = setPos;
+  this.TrackedBug = bug;
+  this.Speed = setSpeed;
+  this.Damage = setDmg;
+  this.Type = setType;
+  this.Clock = 0;
 
+  this.TraceBug = function(){
+    //Todo: When bug dies and becomes undefined , remove this bullet//
+     if (this.Clock % this.Speed === 0 || this.Clock % this.Speed === -0){
+      var moveVector = getDirection(this.Position,new Vector2(this.TrackedBug.X,this.TrackedBug.Y));
+      this.Position.X += moveVector.X * ( (Resolution.X*blockSize) / this.Speed );
+      this.Position.Y += moveVector.Y * ( (Resolution.X*blockSize) / this.Speed );
+     }
+     this.Clock += 1;
+  }
+  //console.log(this);
+  return this;
 }

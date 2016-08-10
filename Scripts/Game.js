@@ -6,6 +6,7 @@ var dirtImage = document.getElementById("dirt");
 var academyImage = document.getElementById("academy");
 var bug1Image = document.getElementById("bug1");
 var hightlight = document.getElementById("hightlight");
+var bulletsImage = document.getElementById("bulletGreen");
 
 var towerBaseImage1 = document.getElementById("towerBase1");
 var towerBaseImage2 = document.getElementById("towerBase2");
@@ -28,6 +29,7 @@ var grida = [];
 var bugs = [];
 var hubItems = [];
 var hubTexts = [];
+var bullets = [];
 
 var towerBaseImages = [towerBaseImage1, towerBaseImage2, towerBaseImage3];
 var towerMenuImages = [towerMenuImage1, towerMenuImage2, towerMenuImage3];
@@ -58,6 +60,7 @@ function StartUp() {
     ctx.fillStyle = "#88FF55";
 
     setRoadForLevel();
+    grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),12);
 
     //Bugs init
     var blockX = Resolution.X * -(blockSize / 2);
