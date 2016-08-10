@@ -105,6 +105,9 @@ function StartUp() {
     });
     //Loading menu items
 
+    var goldImage = hubImages[0];
+    var heartImage = hubImages[1];
+
     hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 5),
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 0));
 
@@ -113,15 +116,15 @@ function StartUp() {
 
 
     //Loading menu texts
+    var initGold = 150;
+    var initLife = 10
+
+
     hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.7),
-        (blockSize * Resolution.X * 2), 22, "#CC2255", 150));
+        (blockSize * Resolution.X * 2), 22, "#CC2255", initGold));
 
-    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.5),
-        (blockSize * Resolution.X * 2), 22, "#CC2255", 9));
-
-    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.9),
-        (blockSize * Resolution.X * 2), 22, "#CC2255", "/ 10"));
-
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.6),
+        (blockSize * Resolution.X * 2), 22, "#CC2255", initLife + "/10"));
 
 }
 
