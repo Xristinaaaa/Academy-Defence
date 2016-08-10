@@ -15,5 +15,6 @@ function HubText (setX, setY, setFontSize, setColor, setContent) {
     this.Color = setColor;
     this.Content = setContent;
 
+
     return this;
 }

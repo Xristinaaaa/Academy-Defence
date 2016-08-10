@@ -34,7 +34,7 @@ function Draw()
     for(var i = 0; i < hubTexts.length; i += 1) {
       ctx.fillStyle = hubTexts[i].Color;
       ctx.font = hubTexts[i].FontSize + "px Comic Sans MS";
-      ctx.strokeText(hubTexts[i].Content,Resolution.X*1.4,Resolution.Y*0.2);
+      ctx.fillText(hubTexts[i].Content,hubTexts[i].X,hubTexts[i].Y);
     }
 
     for (var y = 0; y < 10; y += 1) {

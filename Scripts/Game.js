@@ -1,6 +1,6 @@
 //Load Images
 var allImages = [];
-var hubImages=[];
+var hubImages = [];
 var trevataImage = document.getElementById("grass");
 var dirtImage = document.getElementById("dirt");
 var academyImage = document.getElementById("academy");
@@ -20,6 +20,7 @@ allImages.push(dirtImage);
 allImages.push(bug1Image);
 
 hubImages.push(document.getElementById("goldStack"));
+hubImages.push(document.getElementById("heart"));
 
 var canvasa;
 var ctx;
@@ -64,7 +65,7 @@ function StartUp() {
 
     for (var i = 0; i < 5; i += 1) {
         bugs.push(new Bug(new Vector2(blockX, blockY),
-            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 + parseInt(Math.random() * 20), i));
+            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i));
     }
 
     DrawInterval = setInterval(Draw, DrawRefresh);
@@ -104,12 +105,24 @@ function StartUp() {
     });
     //Loading menu items
 
-    hubItems.push(new HubElement(Resolution.X+(blockSize*Resolution.X*5),
-    (blockSize*Resolution.X*1),(blockSize*Resolution.X*0.5),(blockSize*Resolution.X*0.5), 0));
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 5),
+        (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 0));
+
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 3),
+        (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 1));
+
 
     //Loading menu texts
-    hubTexts.push(new HubText(Resolution.X+(blockSize*Resolution.X*5.5),
-    (blockSize*Resolution.X*1),18, "#CC2255", "100"));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.7),
+        (blockSize * Resolution.X * 2), 22, "#CC2255", 150));
+
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.5),
+        (blockSize * Resolution.X * 2), 22, "#CC2255", 9));
+
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.9),
+        (blockSize * Resolution.X * 2), 22, "#CC2255", "/ 10"));
+
+
 }
 
 window.onload = StartUp;
