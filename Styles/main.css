@@ -13,3 +13,11 @@ html, body, img, ul, li {
     display: inline;
     list-style: none;
 }
+#tower-menu>ul>li>img {
+    transition: all .2s ease-in-out;
+}
+
+#tower-menu > ul > li>img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
