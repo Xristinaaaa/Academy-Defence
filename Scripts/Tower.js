@@ -1,7 +1,8 @@
-function Tower(setType,setPos,setAttackSpeed){
+function Tower(setType,setPos,setAttackSpeed, setDamage){
   this.Type = setType;
   this.Position = setPos;
   this.AttackSpeed = setAttackSpeed;
+  this.Damage = setDamage;
   this.Range = Resolution.X*blockSize*3;
   this.Clock = 0;
 
@@ -14,7 +15,7 @@ function Tower(setType,setPos,setAttackSpeed){
        {
          if (distance2D(this.Position,new Vector2(bugs[i].X,bugs[i].Y)) < this.Range)
          {
-           bullets.push(new Bullet(bugs[i], new Vector2(this.Position.X, this.Position.Y),2,42,0));
+           bullets.push(new Bullet(bugs[i], new Vector2(this.Position.X, this.Position.Y),2,this.Damage,0));
            break;
          }
        }

@@ -60,7 +60,8 @@ function StartUp() {
     ctx.fillStyle = "#88FF55";
 
     setRoadForLevel();
-    grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),12);
+    
+    grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
 
     //Bugs init
     var blockX = Resolution.X * -(blockSize / 2);
@@ -100,6 +101,7 @@ function StartUp() {
                         currentBlock.Highlighted = true;
 
                         //when hightlighted can build tower from the menu
+                        //the tower position should be handled by the factory method
                         //call the method
                     }
                 }
