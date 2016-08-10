@@ -3,6 +3,11 @@ html, body, img, ul, li {
     padding: 0;
 }
 
+/*------------------------------- Tower Menu -------------------------------*/
+#tower-menu {
+    display: none;
+}
+
 #tower-menu > ul {
     border: 1px black solid;
     width: 310px;
@@ -13,11 +18,11 @@ html, body, img, ul, li {
     display: inline;
     list-style: none;
 }
-#tower-menu>ul>li>img {
+#tower-menu> ul > li > img {
     transition: all .2s ease-in-out;
 }
 
-#tower-menu > ul > li>img:hover {
+#tower-menu > ul > li > img:hover {
     transform: scale(1.1);
     cursor: pointer;
 }

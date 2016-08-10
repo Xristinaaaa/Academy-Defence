@@ -40,7 +40,7 @@ function StartUp() {
 
     for (var i = 0; i < 5; i += 1) {
         bugs.push(new Bug(new Vector2(blockX, blockY),
-            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 + parseInt(Math.random()*20), i));
+            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 + parseInt(Math.random() * 20), i));
     }
 
     DrawInterval = setInterval(Draw, DrawRefresh);
@@ -51,10 +51,6 @@ function StartUp() {
     document.body.addEventListener('click', function (event) {
         var x = event.clientX;
         var y = event.clientY;
-
-        var template = '';
-
-
 
         var currentBlock = getBlockFromCoordinates(x, y);
 
@@ -75,6 +71,8 @@ function StartUp() {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
 
+                        showBuildMenu(currentBlock, event.clientX, event.clientY);
+
                         //when hightlighted can build tower from the menu
                         //call the method
 
@@ -83,6 +81,15 @@ function StartUp() {
             }
         }
     });
+
+    function showBuildMenu(block, clickPointerX, clickPointerY) {
+        var towerMenu = document.getElementById('tower-menu');
+        towerMenu.style.position = 'absolute';
+        towerMenu.style.left = clickPointerX + 'px';
+        towerMenu.style.top = clickPointerY + 'px';
+        towerMenu.style.zIndex ='10';
+        towerMenu.style.display = 'block';
+    }
 
     //testing distance between points
     console.log(distance2D(new Vector2(1, 0), new Vector2(-1, 1)));
