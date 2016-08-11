@@ -1,9 +1,9 @@
-function Tower(setType,setPos,setAttackSpeed, setDamage){
+function Tower(setType,setPos,setAttackSpeed, setDamage, setRange){
   this.Type = setType;
   this.Position = setPos;
   this.AttackSpeed = setAttackSpeed;
   this.Damage = setDamage;
-  this.Range = Resolution.X*blockSize*3;
+  this.Range = Resolution.X*blockSize*setRange;
   this.Clock = 0;
 
 
@@ -50,6 +50,6 @@ function Bullet(bug,setPos,setSpeed,setDmg,setType){
      }
      this.Clock += 1;
   };
-  //console.log(this);
+  
   return this;
 }

@@ -16,7 +16,7 @@ function Draw()
 
          if (grida[y][x].Tower !== undefined)
          {
-           ctx.drawImage(towerBaseImage1,x * (blockSize * Resolution.X),
+           ctx.drawImage(towerBaseImages[grida[y][x].Tower.Type],x * (blockSize * Resolution.X),
            y * (blockSize * Resolution.Y),
            (blockSize * Resolution.X),
            (blockSize * Resolution.Y));
@@ -35,6 +35,11 @@ function Draw()
     //Drawing Hub Items
     for (var i = 0; i < hubItems.length; i += 1) {
       ctx.drawImage(hubImages[hubItems[i].ImageIndex], hubItems[i].X - (hubItems[i].Width / 2), hubItems[i].Y- (hubItems[i].Height / 2), hubItems[i].Width, hubItems[i].Height);
+    }
+    
+    //Drawing buttons//
+    for (var i = 0;i < towersMenu.length;i+=1){
+      ctx.drawImage(towerMenuImages[towersMenu[i].ImageIndex], towersMenu[i].X - (towersMenu[i].Width / 2), towersMenu[i].Y- (towersMenu[i].Height / 2), towersMenu[i].Width, towersMenu[i].Height);
     }
 
     //Drawing Texts

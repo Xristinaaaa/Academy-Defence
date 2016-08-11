@@ -23,8 +23,6 @@ function Bug(position, size, health, speed, iterator) {
         }
 
         this.Clock += 1;
-
-
     };
 
     this.takeDamage = function (damage) {
@@ -33,8 +31,6 @@ function Bug(position, size, health, speed, iterator) {
             bugs.splice(bugs.indexOf(this), 1);
         }
     };
-
-
     return this;
 }
 

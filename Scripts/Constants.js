@@ -12,4 +12,3 @@ var DrawRefresh = 40;
 var GrassType = 0;
 var RoadType = 1;
 var TowerType = 2;
-
