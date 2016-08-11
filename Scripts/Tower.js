@@ -22,7 +22,7 @@ function Tower(setType,setPos,setAttackSpeed, setDamage){
      }
 
      this.Clock+=1;
-  }
+  };
 
   return this;
 }
@@ -49,7 +49,7 @@ function Bullet(bug,setPos,setSpeed,setDmg,setType){
       }
      }
      this.Clock += 1;
-  }
+  };
   //console.log(this);
   return this;
 }

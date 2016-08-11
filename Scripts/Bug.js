@@ -11,7 +11,7 @@ function Bug(position, size, health, speed, iterator) {
     this.changeDirection = function (newDirection) {
         this.Direction.X = newDirection.X;
         this.Direction.Y = newDirection.Y;
-    }
+    };
 
     this.Update = function () {
         if (this.Clock >= 0) {
@@ -25,14 +25,14 @@ function Bug(position, size, health, speed, iterator) {
         this.Clock += 1;
 
 
-    }
+    };
 
     this.takeDamage = function (damage) {
         this.Health -= damage;
         if (this.Health <= 0) {
             bugs.splice(bugs.indexOf(this), 1);
         }
-    }
+    };
 
 
     return this;

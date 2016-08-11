@@ -69,9 +69,8 @@ function StartUp() {
     ctx.fillStyle = "#88FF55";
 
     setRoadForLevel();
-    
-    //Setting towers
-    grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
+
+    grida[7][1].Tower = new Tower(2,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
 
     //Bugs init
     var numOfBugs= parseInt(Math.random()*100) + 1;
@@ -93,6 +92,7 @@ function StartUp() {
     //On click get block coordinates.
     //If the block isnt of type road and isnt of type tower allow to build tower.
     document.body.addEventListener('click', function (event) {
+        event.target.style.cursor='pointer';
         var x = event.clientX;
         var y = event.clientY;
 
@@ -114,7 +114,8 @@ function StartUp() {
                     } else {
                         // highlight the clicked block
                         currentBlock.Highlighted = true;
-
+                        currentBlock.Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
+                        
                         //when hightlighted can build tower from the menu
                         //the tower position should be handled by the factory method
                         //call the method
@@ -123,7 +124,6 @@ function StartUp() {
             }
         }
     });
-
     //Loading menu items
     //push gold and heart
     hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 4),
