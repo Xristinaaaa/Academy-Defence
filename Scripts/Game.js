@@ -123,10 +123,10 @@ function StartUp() {
     var goldImage = hubImages[0];
     var heartImage = hubImages[1];
 
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 5),
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 4),
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 0));
 
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 3),
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 2),
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 1));
 
     hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.7),
