@@ -66,13 +66,20 @@ function Draw()
                         (blockSize * Resolution.X),
                         (blockSize * Resolution.Y));
         }
+      }
+    }
+
+    for (var y = 0; y < 10; y += 1) {
+      for (var x = 0; x < 10; x += 1) {
         //draw academy
         if (grida[y][x].IsAcademy === true) {
           ctx.drawImage(academyImage,
-                        x * (blockSize * Resolution.X),
+                        (x - 0.1) * (blockSize * Resolution.X),
                         y * (blockSize * Resolution.Y),
-                        (blockSize * Resolution.X),
-                        (blockSize * Resolution.Y));
+                        (blockSize * Resolution.X) * 2.11,
+                        (blockSize * Resolution.Y) * 2);
+          y = 10;
+          x = 10;
         }
       }
     }
