@@ -43,7 +43,7 @@ function setRoadForLevel() {
     grida[7][6].Type = 1; grida[7][6].Direction = new Vector2(0, 1);
     grida[8][6].Type = 1; grida[8][6].Direction = new Vector2(1, 0);
     grida[8][7].Type = 1; grida[8][7].Direction = new Vector2(1, 0);
-
+    grida[8][8].IsAcademy = true;
 */
   //Setting the path - level 2
 
@@ -76,4 +76,5 @@ function setRoadForLevel() {
     grida[1][5].Type = 1; grida[1][5].Direction = new Vector2(1, 0);
     grida[1][6].Type = 1; grida[1][6].Direction = new Vector2(1, 0);
     grida[1][7].Type = 1; grida[1][7].Direction = new Vector2(1, 0);
+    grida[1][8].IsAcademy = true;
 }

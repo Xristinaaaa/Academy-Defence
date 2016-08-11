@@ -31,7 +31,7 @@ function HubButton (setX, setY, setWidth, setHeight, setImageIndex,setSpawnType)
      if (clientX > this.X - (this.Width/2) && clientX < this.X + (this.Width/2) &&
       clientY > this.Y - (this.Height/2) && clientY < this.Y + (this.Height/2))
       {
-        if (block.Tower === undefined)
+        if (block.Tower === undefined && block.IsAcademy !== true)
         {
           if (this.SpawnType === 0 && playerStats.initGold >= 70)
           {

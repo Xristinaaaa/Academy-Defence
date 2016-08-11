@@ -53,7 +53,18 @@ function bugNextDirection(bug) {
             tempY += 1;
         }
 
-        bug.Direction = grida[tempY][tempX].Direction;
+        if (grida[tempY][tempX].IsAcademy === true) {
+            bugs.splice(bugs.indexOf(bug), 1);
+            playerStats.initLife -= 1;
 
+            if (playerStats.initLife <= 0) {
+                clearInterval(DrawInterval);
+                clearInterval(UpdateInterval);
+
+                DrawLose();
+            }
+        }
+
+        bug.Direction = grida[tempY][tempX].Direction;
     }
 }

@@ -1,6 +1,6 @@
 function Draw()
 {
-      ctx.fillStyle = "#00CD78";
+    ctx.fillStyle = "#00CD78";
     ctx.fillRect(0,0,canvasa.width,canvasa.height);
 
     //ctx.drawImage(trevataImage,0,0,50,50);
@@ -55,11 +55,20 @@ function Draw()
                 Resolution.X + (blockSize * Resolution.X * 3.7),
                 (blockSize * Resolution.X * 2));
 
-    //hightlight effect
+    //draw based on grid
     for (var y = 0; y < 10; y += 1) {
       for (var x = 0; x < 10; x += 1) {
+        //hightlight effect
         if (grida[y][x].Highlighted) {
           ctx.drawImage(hightlight,
+                        x * (blockSize * Resolution.X),
+                        y * (blockSize * Resolution.Y),
+                        (blockSize * Resolution.X),
+                        (blockSize * Resolution.Y));
+        }
+        //draw academy
+        if (grida[y][x].IsAcademy === true) {
+          ctx.drawImage(academyImage,
                         x * (blockSize * Resolution.X),
                         y * (blockSize * Resolution.Y),
                         (blockSize * Resolution.X),
@@ -71,6 +80,16 @@ function Draw()
     //Draw projectiles//
     for (var i = 0;i < bullets.length;i+=1)
     {
-      ctx.drawImage(bulletsImage,bullets[i].Position.X,bullets[i].Position.Y,10,10);
+      ctx.drawImage(bulletsImage,bullets[i].Position.X,bullets[i].Position.Y,15,15);
     }
+}
+
+function DrawLose() {
+  ctx.fillStyle = "#11F122";
+  ctx.fillRect(0,0,canvasa.width,canvasa.height);
+  ctx.fillStyle = "#F1F122";
+  ctx.font = parseInt(Resolution.X / 10) + "px Comic Sans MS";
+  ctx.fillText("GAME OVER, MATE!",
+              200,
+              250);
 }

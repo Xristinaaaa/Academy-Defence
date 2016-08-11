@@ -80,7 +80,7 @@ function StartUp() {
             bugs.push(new Bug(new Vector2(blockX, blockY),
                 new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i * parseInt(Math.random() * 10)));
         }
-    }, 20000);
+    }, 2000);
 
     DrawInterval = setInterval(Draw, DrawRefresh);
     UpdateInterval = setInterval(Update, DrawRefresh);
@@ -108,7 +108,7 @@ function StartUp() {
         } else {
             for (var y = 0; y < 10; y += 1) {
                 for (var x = 0; x < 10; x += 1) {
-                    if ((currentBlock.X !== x) || (currentBlock.Y !== y)) {
+                    if ((currentBlock.X !== x) || (currentBlock.Y !== y) || currentBlock.IsAcademy === true) {
                         grida[y][x].Highlighted = false;
                     } else {
                         // highlight the clicked block
