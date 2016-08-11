@@ -70,7 +70,7 @@ function StartUp() {
 
     setRoadForLevel();
 
-    grida[7][1].Tower = new Tower(2,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
+    grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
 
     //Bugs init
     var numOfBugs= parseInt(Math.random()*100) + 1;
@@ -142,7 +142,7 @@ function StartUp() {
     //Loading menu texts
     initGold = 150;
     initLife = 10;
-
+    
     initTower1= {
         numOfTower: "Tower 1",
         range: "Range: short",
