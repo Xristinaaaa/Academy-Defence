@@ -70,7 +70,7 @@ function StartUp() {
 
     setRoadForLevel();
     
-    //Setting tower
+    //Setting towers
     grida[7][1].Tower = new Tower(0,new Vector2(Resolution.X*blockSize*1.5,Resolution.X*blockSize*7.5),15, 42);
 
     //Bugs init
@@ -132,19 +132,32 @@ function StartUp() {
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 1));
 
     //push towers
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 5),
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 4.8),
         (blockSize * Resolution.X * 5), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 2));
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 3),
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 2.9),
         (blockSize * Resolution.X * 5), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 3));
-    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 1),
+    hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 0.9),
         (blockSize * Resolution.X * 5), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 4));
 
     //Loading menu texts
     initGold = 150;
     initLife = 10;
-    initTower1= "Tower 1\n Range: short\n Damage: med\n Cost: 50";
-    initTower2= "Tower 2\n Range: med\n Damage: med\n Cost: 60";
-    initTower3= "Tower 3\n Range: long\n Damage: large\n Cost: 75";
+
+    initTower1= {
+        numOfTower: "Tower 1",
+        range: "Range: short",
+        damage: "Damage: med",
+        cost: "Cost: 50"};
+    initTower2= {
+        numOfTower: "Tower 2",
+        range: "Range: med",
+        damage: "Damage: med",
+        cost: "Cost: 60"};
+    initTower3= {
+        numOfTower: "Tower 3",
+        range: "Range: long",
+        damage: "Damage: large",
+        cost: "Cost: 75"};
 
     //push gold and heart text
     hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 3.7),
@@ -153,15 +166,33 @@ function StartUp() {
         (blockSize * Resolution.X * 2), 22, "#CC2255", initLife + "/10"));
 
     //push towers text
-    /* 
     hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 0.3),
-        (blockSize * Resolution.X * 6), 22, "#666600", initTower1));
-    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.3),
-        (blockSize * Resolution.X * 7), 22, "#006666", initTower2));
-    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.3),
-        (blockSize * Resolution.X * 8), 22, "#FF0000", initTower3));
-    */
+        (blockSize * Resolution.X * 6), 22, "#666600", initTower1.numOfTower));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 0.3),
+        (blockSize * Resolution.X * 6.5), 22, "#666600", initTower1.range));   
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 0.3),
+        (blockSize * Resolution.X * 7), 22, "#666600", initTower1.damage));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 0.3),
+        (blockSize * Resolution.X * 7.5), 22, "#666600", initTower1.cost));
 
+        
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.3),
+        (blockSize * Resolution.X * 6), 22, "#006666", initTower2.numOfTower));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.3),
+        (blockSize * Resolution.X * 6.5), 22, "#006666", initTower2.range));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.3),
+        (blockSize * Resolution.X * 7), 22, "#006666", initTower2.damage));
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.3),
+        (blockSize * Resolution.X * 7.5), 22, "#006666", initTower2.cost));
+
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.3),
+        (blockSize * Resolution.X * 6), 22, "#FF0000", initTower3.numOfTower));  
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.3),
+        (blockSize * Resolution.X * 6.5), 22, "#FF0000", initTower3.range));  
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.3),
+        (blockSize * Resolution.X * 7), 22, "#FF0000", initTower3.damage));  
+    hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.3),
+        (blockSize * Resolution.X * 7.5), 22, "#FF0000", initTower3.cost));  
 }
 
 window.onload = StartUp;
