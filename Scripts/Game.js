@@ -37,7 +37,13 @@ var bullets = [];
 var towerBaseImages = [towerBaseImage1, towerBaseImage2, towerBaseImage3];
 var towerMenuImages = [towerMenuImage1, towerMenuImage2, towerMenuImage3];
 
-var towerMenuSelector = 'tower-menu';
+//Loading menu texts
+//Player Stats
+var playerStats = {
+                    initGold : 150,
+                    initLife : 10
+                  };
+
 
 var towerCanvas = document.getElementById('tower-canvas');
 towerCanvas.width = window.innerHeight * EntireCanvasWidth;
@@ -68,10 +74,13 @@ function StartUp() {
     var blockX = Resolution.X * -(blockSize / 2);
     var blockY = Resolution.Y * (8.5 * blockSize);
 
-    for (var i = 0; i < 5; i += 1) {
-        bugs.push(new Bug(new Vector2(blockX, blockY),
-            new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i));
-    }
+    //waves of bugs
+    setInterval(function () {
+        for (var i = 0; i < parseInt(10 + Math.random() * 14); i += 1) {
+            bugs.push(new Bug(new Vector2(blockX, blockY),
+                new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i * parseInt(Math.random() * 10)));
+        }
+    }, 20000);
 
     DrawInterval = setInterval(Draw, DrawRefresh);
     UpdateInterval = setInterval(Update, DrawRefresh);
@@ -120,17 +129,11 @@ function StartUp() {
     hubItems.push(new HubElement(Resolution.X + (blockSize * Resolution.X * 3),
         (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 1));
 
-
-    //Loading menu texts
-    var initGold = 150;
-    var initLife = 10
-
-
     hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 4.7),
-        (blockSize * Resolution.X * 2), 22, "#CC2255", initGold));
+        (blockSize * Resolution.X * 2), 22, "#CC2255", playerStats.initGold));
 
     hubTexts.push(new HubText(Resolution.X + (blockSize * Resolution.X * 2.6),
-        (blockSize * Resolution.X * 2), 22, "#CC2255", initLife + "/10"));
+        (blockSize * Resolution.X * 2), 22, "#CC2255", playerStats.initLife + "/10"));
 
     //Adding Towers in menu//
     towersMenu.push(new HubButton(Resolution.X + (blockSize * Resolution.X * 5),

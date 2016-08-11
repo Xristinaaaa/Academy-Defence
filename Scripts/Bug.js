@@ -29,6 +29,7 @@ function Bug(position, size, health, speed, iterator) {
         this.Health -= damage;
         if (this.Health <= 0) {
             bugs.splice(bugs.indexOf(this), 1);
+            playerStats.initGold += 10;
         }
     };
     return this;

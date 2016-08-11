@@ -42,14 +42,20 @@ function Draw()
       ctx.drawImage(towerMenuImages[towersMenu[i].ImageIndex], towersMenu[i].X - (towersMenu[i].Width / 2), towersMenu[i].Y- (towersMenu[i].Height / 2), towersMenu[i].Width, towersMenu[i].Height);
     }
 
-    //Drawing Texts
+    //Drawing Player Stats
+    ctx.fillStyle = "#F12222";
+    ctx.font = 22 + "px Comic Sans MS";
+    ctx.fillText(playerStats.initLife + "/10",
+                Resolution.X + (blockSize * Resolution.X * 1.6),
+                (blockSize * Resolution.X * 2));
+    
+    ctx.fillStyle = "#F1F122";
+    ctx.font = 22 + "px Comic Sans MS";
+    ctx.fillText(playerStats.initGold,
+                Resolution.X + (blockSize * Resolution.X * 3.7),
+                (blockSize * Resolution.X * 2));
 
-    for(var i = 0; i < hubTexts.length; i += 1) {
-      ctx.fillStyle = hubTexts[i].Color;
-      ctx.font = hubTexts[i].FontSize + "px Comic Sans MS";
-      ctx.fillText(hubTexts[i].Content,hubTexts[i].X,hubTexts[i].Y);
-    }
-
+    //hightlight effect
     for (var y = 0; y < 10; y += 1) {
       for (var x = 0; x < 10; x += 1) {
         if (grida[y][x].Highlighted) {

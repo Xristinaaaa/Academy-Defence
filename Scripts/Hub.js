@@ -13,7 +13,7 @@ function HubText (setX, setY, setFontSize, setColor, setContent) {
     this.Y = setY;
     this.FontSize = setFontSize;
     this.Color = setColor;
-    this.Content = setContent;
+    this.ContentObj = {};
 
 
     return this;
@@ -33,19 +33,30 @@ function HubButton (setX, setY, setWidth, setHeight, setImageIndex,setSpawnType)
       {
         if (block.Tower === undefined)
         {
-          if (this.SpawnType === 0)
+          if (this.SpawnType === 0 && playerStats.initGold >= 70)
           {
-            block.Tower = new Tower(this.SpawnType,new Vector2(Resolution.X*blockSize*(block.X + 0.5),Resolution.X*blockSize*(block.Y + 0.5)),30, 50,4);
-
+            block.Tower = new Tower(this.SpawnType,
+                            new Vector2(Resolution.X*blockSize*(block.X + 0.5),
+                            Resolution.X*blockSize*(block.Y + 0.5)),
+                            30, 50,4, 70);
+            playerStats.initGold -= 70;
           }
-          else if (this.SpawnType === 1)
+          else if (this.SpawnType === 1 && playerStats.initGold >= 120)
           {
-            block.Tower = new Tower(this.SpawnType,new Vector2(Resolution.X*blockSize*(block.X + 0.5),Resolution.X*blockSize*(block.Y + 0.5)),10, 25,3);
+            block.Tower = new Tower(this.SpawnType,
+                            new Vector2(Resolution.X*blockSize*(block.X + 0.5),
+                            Resolution.X*blockSize*(block.Y + 0.5)),
+                            10, 25, 3, 120);
+            playerStats.initGold -= 120;
+          }
+          else if (this.SpawnType === 2 && playerStats.initGold >= 150) {
+            block.Tower = new Tower(this.SpawnType,
+                            new Vector2(Resolution.X*blockSize*(block.X + 0.5),
+                            Resolution.X*blockSize*(block.Y + 0.5)),
+                            80, 150, 5, 150);
+            playerStats.initGold -= 150;
+          }
 
-          }
-          else {
-            block.Tower = new Tower(this.SpawnType,new Vector2(Resolution.X*blockSize*(block.X + 0.5),Resolution.X*blockSize*(block.Y + 0.5)),100, 150,5);
-          }
           block.Highlighted = false;
           currentBlock = undefined;
         }
