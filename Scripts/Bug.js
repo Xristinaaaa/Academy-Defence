@@ -30,6 +30,22 @@ function Bug(position, size, health, speed, iterator) {
         if (this.Health <= 0) {
             bugs.splice(bugs.indexOf(this), 1);
             playerStats.initGold += 5;
+
+            //Animate gold Image
+
+            hubItems[0] = (new HubElement(Resolution.X + (blockSize * Resolution.X * 4),
+                (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.7), (blockSize * Resolution.X * 0.7), 0));
+
+            Draw();
+
+            setTimeout(function () {
+                hubItems[0] = (new HubElement(Resolution.X + (blockSize * Resolution.X * 4),
+                    (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 0));
+
+                Draw();
+
+            }, 100)
+
         }
     };
     return this;
@@ -57,9 +73,23 @@ function bugNextDirection(bug) {
             bugs.splice(bugs.indexOf(bug), 1);
             playerStats.initLife -= 1;
 
+            //Animate heart Image
+            hubItems[1] = (new HubElement(Resolution.X + (blockSize * Resolution.X * 2),
+                (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.4), (blockSize * Resolution.X * 0.4), 1));
+
+            Draw();
+
+            var drawBack = setTimeout(function () {
+                    hubItems[1] = (new HubElement(Resolution.X + (blockSize * Resolution.X * 2),
+                        (blockSize * Resolution.X * 1), (blockSize * Resolution.X * 0.5), (blockSize * Resolution.X * 0.5), 1));
+
+                    Draw();
+                }, 100)
+
             if (playerStats.initLife <= 0) {
                 clearInterval(DrawInterval);
                 clearInterval(UpdateInterval);
+                clearTimeout(drawBack);
 
                 DrawLose();
             }
