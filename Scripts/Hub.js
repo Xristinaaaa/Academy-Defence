@@ -38,7 +38,7 @@ function HubButton (setX, setY, setWidth, setHeight, setImageIndex,setSpawnType)
             block.Tower = new Tower(this.SpawnType,
                             new Vector2(Resolution.X*blockSize*(block.X + 0.5),
                             Resolution.X*blockSize*(block.Y + 0.5)),
-                            30, 50,4, 70);
+                            30, 50, 4, 70);
             playerStats.initGold -= 70;
           }
           else if (this.SpawnType === 1 && playerStats.initGold >= 120)

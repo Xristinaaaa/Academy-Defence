@@ -41,19 +41,70 @@ function Draw()
     for (var i = 0;i < towersMenu.length;i+=1){
       ctx.drawImage(towerMenuImages[towersMenu[i].ImageIndex], towersMenu[i].X - (towersMenu[i].Width / 2), towersMenu[i].Y- (towersMenu[i].Height / 2), towersMenu[i].Width, towersMenu[i].Height);
     }
+    // THIS IS BASED ON MY RESOLUTION
+    //drawing towers Stats
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = 18 + "px Comic Sans MS";
+    //DMG
+    ctx.fillText("DMG: 50",
+              Resolution.X + (blockSize * Resolution.X * 0.4),
+              (blockSize * Resolution.X * 6));
+    ctx.fillText("DMG: 25",
+              Resolution.X + (blockSize * Resolution.X * 2.4),
+              (blockSize * Resolution.X * 6));
+    ctx.fillText("DMG: 150",
+              Resolution.X + (blockSize * Resolution.X * 4.3),
+              (blockSize * Resolution.X * 6));
+    //Attack speed
+    ctx.fillText("AS: 30",
+              Resolution.X + (blockSize * Resolution.X * 0.4),
+              (blockSize * Resolution.X * 6.5));
+    ctx.fillText("AS: 10",
+              Resolution.X + (blockSize * Resolution.X * 2.4),
+              (blockSize * Resolution.X * 6.5));
+    ctx.fillText("AS: 80",
+              Resolution.X + (blockSize * Resolution.X * 4.3),
+              (blockSize * Resolution.X * 6.5));
+    //Tower range
+    ctx.fillText("Range: 4",
+              Resolution.X + (blockSize * Resolution.X * 0.4),
+              (blockSize * Resolution.X * 7));
+    ctx.fillText("Range: 3",
+              Resolution.X + (blockSize * Resolution.X * 2.4),
+              (blockSize * Resolution.X * 7));
+    ctx.fillText("Range: 5",
+              Resolution.X + (blockSize * Resolution.X * 4.3),
+              (blockSize * Resolution.X * 7));
+    //Tower price
+    ctx.fillStyle = "#F1F222";
+    ctx.fillText("Price: 70",
+              Resolution.X + (blockSize * Resolution.X * 0.4),
+              (blockSize * Resolution.X * 9.3));
+    ctx.fillText("Price: 120",
+              Resolution.X + (blockSize * Resolution.X * 2.4),
+              (blockSize * Resolution.X * 9.3));
+    ctx.fillText("Price: 150",
+              Resolution.X + (blockSize * Resolution.X * 4.3),
+              (blockSize * Resolution.X * 9.3));
+
+
 
     //Drawing Player Stats
-    ctx.fillStyle = "#F12222";
-    ctx.font = 22 + "px Comic Sans MS";
+    ctx.font = 26 + "px Comic Sans MS";
     ctx.fillText(playerStats.initLife + "/10",
                 Resolution.X + (blockSize * Resolution.X * 1.6),
                 (blockSize * Resolution.X * 2));
     
-    ctx.fillStyle = "#F1F122";
-    ctx.font = 22 + "px Comic Sans MS";
     ctx.fillText(playerStats.initGold,
                 Resolution.X + (blockSize * Resolution.X * 3.7),
                 (blockSize * Resolution.X * 2));
+
+
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = 38 + "px Comic Sans MS";
+    ctx.fillText("Wave : " + playerStats.waveNumber,
+                Resolution.X + (blockSize * Resolution.X * 1.7),
+                (blockSize * Resolution.X * 3.5));
 
     //draw based on grid
     for (var y = 0; y < 10; y += 1) {

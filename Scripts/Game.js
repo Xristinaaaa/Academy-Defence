@@ -41,7 +41,8 @@ var towerMenuImages = [towerMenuImage1, towerMenuImage2, towerMenuImage3];
 //Player Stats
 var playerStats = {
                     initGold : 150,
-                    initLife : 10
+                    initLife : 10,
+                    waveNumber : 0
                   };
 
 
@@ -76,11 +77,12 @@ function StartUp() {
 
     //waves of bugs
     setInterval(function () {
-        for (var i = 0; i < parseInt(10 + Math.random() * 14); i += 1) {
+        for (var i = 0; i < parseInt(5 + Math.random() * (14 + playerStats.waveNumber * 3)); i += 1) {
             bugs.push(new Bug(new Vector2(blockX, blockY),
                 new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i * parseInt(Math.random() * 10)));
         }
-    }, 2000);
+        playerStats.waveNumber += 1;
+    }, 10000);
 
     DrawInterval = setInterval(Draw, DrawRefresh);
     UpdateInterval = setInterval(Update, DrawRefresh);
@@ -137,13 +139,13 @@ function StartUp() {
 
     //Adding Towers in menu//
     towersMenu.push(new HubButton(Resolution.X + (blockSize * Resolution.X * 5),
-        (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 0 , 0));
+        (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 2, 2));
 
     towersMenu.push(new HubButton(Resolution.X + (blockSize * Resolution.X * 3),
-        (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 1 , 1));
+        (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 1, 1));
 
     towersMenu.push(new HubButton(Resolution.X + (blockSize * Resolution.X * 1),
-        (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 2 , 2));
+        (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 0, 0));
 }
 
 window.onload = StartUp;
