@@ -139,7 +139,7 @@ function Draw()
     for (var i = 0; i < bugs.length; i += 1) {
       var bug = bugs[i];
 
-      ctx.drawImage(bug1Image, bug.X - (bug.Width / 2), bug.Y - (bug.Height / 2) , bug.Width, bug.Height);
+      ctx.drawImage(bugImages[bugs[i].ImageIndex], bug.X - (bug.Width / 2), bug.Y - (bug.Height / 2) , bug.Width, bug.Height);
     }
 }
 

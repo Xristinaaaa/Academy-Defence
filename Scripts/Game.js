@@ -1,10 +1,12 @@
 //Load Images
 var allImages = [];
+var bugImages = [];
 var hubImages = [];
 var trevataImage = document.getElementById("grass");
 var dirtImage = document.getElementById("dirt");
 var academyImage = document.getElementById("academy");
 var bug1Image = document.getElementById("bug1");
+var bug2Image = document.getElementById("bug2");
 var hightlight = document.getElementById("hightlight");
 var bulletsImage = document.getElementById("bulletGreen");
 
@@ -18,7 +20,8 @@ var towerMenuImage3 = document.getElementById("towerMenu3");
 
 allImages.push(trevataImage);
 allImages.push(dirtImage);
-allImages.push(bug1Image);
+bugImages.push(bug1Image);
+bugImages.push(bug2Image);
 
 hubImages.push(document.getElementById("goldStack"));
 hubImages.push(document.getElementById("heart"));
@@ -76,12 +79,23 @@ function StartUp() {
     var blockY = Resolution.Y * (8.5 * blockSize);
 
     //waves of bugs
-    setInterval(function () {
+    function spawnBugs() {
         for (var i = 0; i < parseInt(5 + Math.random() * (14 + playerStats.waveNumber * 3)); i += 1) {
-            bugs.push(new Bug(new Vector2(blockX, blockY),
-                new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i * parseInt(Math.random() * 10)));
+            //spawn different bugs
+            if (Math.random() <= 0.5) {
+                bugs.push(new Bug(0, new Vector2(blockX, blockY),
+                new Vector2(blockSize * Resolution.X * 0.5, blockSize * Resolution.X * 0.5), 100, 15 - parseInt(Math.random() * 10), i * parseInt(Math.random() * 10), 10));
+            } else {
+                bugs.push(new Bug(1, new Vector2(blockX, blockY),
+                    new Vector2(blockSize * Resolution.X * 0.7, blockSize * Resolution.X * 0.7), 300, 30, i * parseInt(Math.random() * 10), 30));
+            }
         }
         playerStats.waveNumber += 1;
+    }
+    
+    spawnBugs();
+    setInterval(function () {
+        spawnBugs();
     }, 10000);
 
     DrawInterval = setInterval(Draw, DrawRefresh);
@@ -147,5 +161,6 @@ function StartUp() {
     towersMenu.push(new HubButton(Resolution.X + (blockSize * Resolution.X * 1),
         (blockSize * Resolution.X * 8), (blockSize * Resolution.X * 1.5), (blockSize * Resolution.X * 1.5), 0, 0));
 }
+
 
 window.onload = StartUp;

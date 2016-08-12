@@ -1,11 +1,13 @@
-function Bug(position, size, health, speed, iterator) {
+function Bug(setImageIndex, position, size, health, speed, iterator, setGold) {
     this.X = position.X;
     this.Y = position.Y;
     this.Width = size.X;
     this.Height = size.Y;
     this.Health = health;
     this.Speed = speed;
+    this.ImageIndex = setImageIndex;
     this.Clock = iterator * -speed;
+    this.Gold = setGold;
     this.Direction = new Vector2(1, 0);
 
     this.changeDirection = function (newDirection) {
@@ -29,7 +31,7 @@ function Bug(position, size, health, speed, iterator) {
         this.Health -= damage;
         if (this.Health <= 0) {
             bugs.splice(bugs.indexOf(this), 1);
-            playerStats.initGold += 5;
+            playerStats.initGold += this.Gold;
 
             //Animate gold Image
 
