@@ -26,17 +26,12 @@ function Draw()
 
     //ctx.drawImage(academyImage,0.73*window.innerHeight,0.565*window.innerHeight,0.22*window.innerHeight,0.41*window.innerHeight);
 
-    for (var i = 0; i < bugs.length; i += 1) {
-      var bug = bugs[i];
-
-      ctx.drawImage(bug1Image, bug.X - (bug.Width / 2), bug.Y - (bug.Height / 2) , bug.Width, bug.Height);
-    }
 
     //Drawing Hub Items
     for (var i = 0; i < hubItems.length; i += 1) {
       ctx.drawImage(hubImages[hubItems[i].ImageIndex], hubItems[i].X - (hubItems[i].Width / 2), hubItems[i].Y- (hubItems[i].Height / 2), hubItems[i].Width, hubItems[i].Height);
     }
-    
+
     //Drawing buttons//
     for (var i = 0;i < towersMenu.length;i+=1){
       ctx.drawImage(towerMenuImages[towersMenu[i].ImageIndex], towersMenu[i].X - (towersMenu[i].Width / 2), towersMenu[i].Y- (towersMenu[i].Height / 2), towersMenu[i].Width, towersMenu[i].Height);
@@ -94,7 +89,7 @@ function Draw()
     ctx.fillText(playerStats.initLife + "/10",
                 Resolution.X + (blockSize * Resolution.X * 1.6),
                 (blockSize * Resolution.X * 2));
-    
+
     ctx.fillText(playerStats.initGold,
                 Resolution.X + (blockSize * Resolution.X * 3.7),
                 (blockSize * Resolution.X * 2));
@@ -139,6 +134,12 @@ function Draw()
     for (var i = 0;i < bullets.length;i+=1)
     {
       ctx.drawImage(bulletsImage,bullets[i].Position.X,bullets[i].Position.Y,15,15);
+    }
+
+    for (var i = 0; i < bugs.length; i += 1) {
+      var bug = bugs[i];
+
+      ctx.drawImage(bug1Image, bug.X - (bug.Width / 2), bug.Y - (bug.Height / 2) , bug.Width, bug.Height);
     }
 }
 
